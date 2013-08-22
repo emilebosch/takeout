@@ -1,0 +1,16 @@
+class ServerBuilder
+	build_app do |config|
+		config['NAME'] = {
+			rails_env: 'ENV',
+			packages: ['nodejs'],
+			domain_names: ['NAME.com', 'www.NAME.com'],
+			database_info: {
+				adapter: 'mysql2',
+				host: 'localhost',
+				username: 'NAME',
+				password: 'PASSWORD',
+				database: 'NAME_ENV'
+			}
+		}
+	end
+end

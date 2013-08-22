@@ -1,0 +1,6 @@
+require 'bundler/capistrano'
+server 'SERVERIP', :app, :web, :db, primary: true
+set :user, 'SERVERUSER'
+set :dbpassword, 'DBPASSWORD'
+
+# Oh hi! Write your CAP tasks here!

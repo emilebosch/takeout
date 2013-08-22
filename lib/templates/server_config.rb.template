@@ -1,0 +1,30 @@
+class ServerBuilder
+	server_config do |node|
+		node[:run_list] = ['role[mysql]','role[rails]']
+		node[:mysql] = {
+		    server_debian_password: capistrano.dbpassword,
+		    server_root_password: 	capistrano.dbpassword,
+		    server_repl_password: 	capistrano.dbpassword
+  		}
+ 		node[:rbenv] ||= {}
+ 		node[:rbenv][:user_installs] = [
+	      {
+	        user: capistrano.user,
+	        rubies: ['2.0.0-p247'],
+	        global: '2.0.0-p247',
+	        gems: {
+	          :'2.0.0-p247'=> [ {name: 'bundler'} ]
+	        }
+     	 }
+    	]
+		node[:authorization] = {
+		    sudo: {
+		    	users: [capistrano.user],
+		    	groups: ['admin', 'sudo'],
+		    	passwordless: true,
+		    	include_sudoers_d: true
+		    }
+		}
+		node[:ssh_deploy_keys] = [ `cat ~/.ssh/id_rsa.pub` ]
+	end
+end

@@ -1,0 +1,5 @@
+.DS_Store
+vagrant/
+server.json
+nodes/
+config/
