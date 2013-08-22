@@ -6,6 +6,8 @@ Takeout aims to simplify ruby on rails deployment by wrapping simple ``capistran
 
 It aims to stay close to to existing tools leveraging cap, chef, knife so and cat.
 
+It's BETA now, please be careful running production, if you really want to. Maybe test it first on local vagrant instances :O
+
 ### Features
 
 - Installs RBENV
