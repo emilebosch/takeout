@@ -52,6 +52,7 @@ namespace :takeout do
     end
   end
 
+  desc "Add an application to the serer"
   task :addapp do
     `mkdir -p ./config/apps` #FIXME: Error when not exists
 
@@ -67,6 +68,7 @@ namespace :takeout do
     }
   end
 
+  desc 'Build the JSON app'
   task :build do
     ServerBuilder.capistrano = self
 

@@ -4,7 +4,8 @@ class ServerBuilder
 		node[:mysql] = {
 		    server_debian_password: capistrano.dbpassword,
 		    server_root_password: 	capistrano.dbpassword,
-		    server_repl_password: 	capistrano.dbpassword
+		    server_repl_password: 	capistrano.dbpassword,
+		    bind_address: '127.0.0.1'
   		}
  		node[:rbenv] ||= {}
  		node[:rbenv][:user_installs] = [
